@@ -45,3 +45,6 @@ config.json
 # Temporary files
 *.tmp
 *.temp
+
+# archive file
+pdftools_v*.zip

@@ -6,7 +6,7 @@ echo PDF Tools - Creazione Pacchetto
 echo ========================================
 echo.
 
-set VERSION=1.0.0
+set VERSION=1.0.1
 set PACKAGE_NAME=pdftools_v%VERSION%
 set TEMP_DIR=%PACKAGE_NAME%_temp
 
@@ -35,7 +35,10 @@ copy main.py "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
 copy app.py "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
 copy config.py "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
 copy requirements.txt "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
-copy install_and_run.bat "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
+copy install.bat "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
+copy run.bat "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
+copy install.sh "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
+copy run.sh "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
 copy icon.ico "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
 copy README.md "%TEMP_DIR%\%PACKAGE_NAME%\" >nul
 copy .gitignore "%TEMP_DIR%\%PACKAGE_NAME%\" >nul

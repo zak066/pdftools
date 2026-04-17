@@ -3,8 +3,6 @@ from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QPixmap
 
-from qfluentwidgets import FluentIcon
-
 
 class DropArea(QWidget):
     pdf_dropped = Signal(str)

@@ -9,7 +9,7 @@ from loguru import logger
 DEFAULT_UPDATE_URL = os.environ.get(
     "PDFTOOLS_UPDATE_URL", "https://api.github.com/repos/user/pdftools/releases/latest"
 )
-current_version = "1.0.0"
+current_version = "1.0.1"
 
 
 def get_config_path() -> Path:

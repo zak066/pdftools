@@ -16,7 +16,7 @@ class Application(QApplication):
         setup_exceptions()
 
         self.setApplicationName("PDF Tools")
-        self.setApplicationVersion("1.0.0")
+        self.setApplicationVersion("1.0.1")
         self.setOrganizationName("PDF Tools")
 
         apply_theme()

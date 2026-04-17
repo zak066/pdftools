@@ -100,7 +100,6 @@ class MainWindow(FluentWindow):
         self._sidebar.pages_selected.connect(self._on_pages_selected)
 
         self._preview = PDFPreview()
-        self._preview.pdf_dropped.connect(self._on_pdf_dropped)
 
         splitter = QSplitter(Qt.Horizontal)
         splitter.addWidget(self._sidebar)
@@ -257,9 +256,6 @@ class MainWindow(FluentWindow):
         self._sidebar.load_pdf(file_path)
         self._preview.load_page(file_path, 0)
         self._status.setText(f"  Caricato: {Path(file_path).name}")
-
-    def _on_pdf_dropped(self, file_path: str):
-        self._load_pdf(file_path)
 
     def _on_open_pdf(self):
         filters = "PDF (*.pdf)"

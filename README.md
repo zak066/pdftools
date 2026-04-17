@@ -10,7 +10,8 @@ Applicazione desktop Windows per la creazione e manipolazione di file PDF.
 
 - [Funzionalità](#funzionalità)
 - [Requisiti](#requisiti)
-- [Installazione](#installazione)
+- [Installazione (Windows)](#installazione-windows)
+- [Installazione (Linux)](#installazione-linux)
 - [Utilizzo](#utilizzo)
 - [Shortcut tastiera](#shortcut-tastiera)
 - [Configurazione](#configurazione)
@@ -53,28 +54,56 @@ Applicazione desktop Windows per la creazione e manipolazione di file PDF.
 ## Requisiti
 
 - Python 3.10+
-- Windows 10/11
+- Windows 10/11 oppure Linux
 
-## Installazione
+## Installazione (Windows)
 
 1. **Clona o scarica il progetto**
 
-2. **Attiva il virtual environment**:
-   ```bash
-   venv\Scripts\activate.bat
+2. **Esegui lo script di installazione**:
+   ```cmd
+   install.bat
    ```
 
-3. **Installa le dipendenze**:
-   ```bash
-   pip install -r requirements.txt
+   Lo script:
+   - Crea un virtual environment `venv` nella cartella del progetto
+   - Installa tutte le dipendenze automaticamente
+   - Crea un collegamento nel menu Start
+
+3. **Avvia l'applicazione**:
+   ```cmd
+   run.bat
    ```
 
-## Utilizzo
+   Oppure cerca "PDF Tools" nel menu Start.
 
-Avvia l'applicazione:
-```bash
-python main.py
-```
+## Installazione (Linux)
+
+1. **Clona o scarica il progetto**
+
+2. **Esegui lo script di installazione**:
+   ```bash
+   ./install.sh
+   ```
+
+   Lo script:
+   - Crea un virtual environment `venv` nella cartella del progetto
+   - Installa tutte le dipendenze automaticamente
+   - Crea un desktop entry in `~/.local/share/applications/`
+   - Converte l'icona da `.ico` a `.png` se necessario
+
+3. **Avvia l'applicazione**:
+   ```bash
+   ./run.sh
+   ```
+
+   Oppure cerca "PDF Tools" nel menu delle applicazioni.
+
+### Note
+
+- Il virtual environment viene creato nella directory del progetto (`./venv`)
+- Lo script è compatibile con qualsiasi distribuzione Linux
+- L'installazione è "one-shot": dopo il primo `./install.sh`, basta usare `./run.sh`
 
 ### Flusso tipico
 
@@ -130,6 +159,10 @@ pdftools/
 ├── main.py                  # Entry point
 ├── app.py                   # Application class (PySide6)
 ├── config.py                # Costanti dell'applicazione
+├── run.sh                  # Launcher (Linux)
+├── install.sh              # Installazione (Linux)
+├── run.bat                  # Launcher (Windows)
+├── install.bat             # Installazione (Windows)
 │
 ├── gui/
 │   ├── __init__.py

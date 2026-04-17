@@ -1,40 +1,30 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
-from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QPixmap, QDragEnterEvent, QDropEvent
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QPixmap
 from loguru import logger
-
-from qfluentwidgets import FluentIcon
 
 from gui.widgets.drop_area import DropArea
 from config import PREVIEW_MAX_WIDTH
 
 
 class PDFPreview(QWidget):
-    pdf_dropped = Signal(str)
-
     def __init__(self, parent=None):
         super().__init__(parent)
         self._pdf_path = None
         self._page_num = 0
         self._setup_ui()
-        self.setAcceptDrops(True)
 
     def _setup_ui(self):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
 
         self._drop_area = DropArea()
-        self._drop_area.pdf_dropped.connect(self._on_dropped)
         layout.addWidget(self._drop_area)
 
         self._page_label = QLabel("")
         self._page_label.setAlignment(Qt.AlignCenter)
         self._page_label.setStyleSheet("color: gray; font-size: 12px;")
         layout.addWidget(self._page_label)
-
-    def _on_dropped(self, file_path: str):
-        logger.info("PDFPreview got dropped: {}", file_path)
-        self.pdf_dropped.emit(file_path)
 
     def load_page(self, file_path: str, page_num: int = 0):
         self._pdf_path = file_path
