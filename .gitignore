@@ -48,3 +48,6 @@ config.json
 
 # archive file
 pdftools_v*.zip
+
+#pdf file
+*.pdf
