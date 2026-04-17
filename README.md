@@ -1,5 +1,18 @@
 # PDF Tools
 
+
+## AVVISO IMPORTANTE
+
+Questa applicazione è stata sviluppata esclusivamente per scopi di testing e sviluppo.
+
+**Si sconsiglia fortemente l'utilizzo in ambiente di produzione in quanto:**
+
+- Potrebbe contenere bug non ancora individuati
+- Non è stata testata approfonditamente
+- Non è previsto nessun tipo di supporto
+- Potrebbe subire modifiche radicali senza preavviso
+
+
 Applicazione desktop Windows per la creazione e manipolazione di file PDF.
 
 ![Versione](https://img.shields.io/badge/version-1.0.0-blue)
