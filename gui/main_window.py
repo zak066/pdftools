@@ -20,6 +20,7 @@ from qfluentwidgets import (
     Action,
     FluentIcon,
     Theme,
+    setFont,
 )
 
 from gui.widgets.pdf_sidebar import PDFSidebar
@@ -78,6 +79,7 @@ class MainWindow(FluentWindow):
         self.setWindowTitle("PDF Tools")
         self.setMinimumSize(MIN_WINDOW_WIDTH, MIN_WINDOW_HEIGHT)
         self.resize(1200, 800)
+        self.titleBar.titleLabel.hide()
 
     def _setup_ui(self):
         wrapper = QWidget()
@@ -110,9 +112,10 @@ class MainWindow(FluentWindow):
         main_layout.addWidget(self._home_widget)
 
         self._status = QLabel()
+        self._status.setFixedHeight(22)
         self._status.setStyleSheet(
             "QLabel { background: #f5f5f5; border-top: 1px solid #e0e0e0; "
-            "padding: 4px 12px; color: #666; font-size: 12px; }"
+            "padding: 0px 8px; color: #666; font-size: 11px; }"
         )
         self._status.setText(f"  Pronto - v{get_version()}")
         main_layout.addWidget(self._status)
@@ -120,6 +123,11 @@ class MainWindow(FluentWindow):
         self.addSubInterface(wrapper, FluentIcon.HOME, "Home")
 
     def _setup_toolbar(self):
+        self._app_title = QLabel("PDF Tools")
+        self._app_title.setStyleSheet(
+            "QLabel { font-size: 14px; font-weight: bold; padding: 0px 12px; }"
+        )
+
         self.commandBar = CommandBar(self)
         self.commandBar.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         self.commandBar.setFixedHeight(48)
@@ -200,8 +208,9 @@ class MainWindow(FluentWindow):
             )
         )
 
+        self.titleBar.hBoxLayout.insertWidget(0, self._app_title, 0)
         self.titleBar.hBoxLayout.insertWidget(1, self.commandBar, 1)
-        self.titleBar.hBoxLayout.insertSpacing(1, 10)
+        self.titleBar.hBoxLayout.insertSpacing(2, 10)
 
     def _setup_navigation(self):
         self.navigationInterface.addItem(
