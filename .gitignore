@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec.bak
+
+# Nuitka
+*.nuitka_cache/
+*.onefile-build/
+nuitka-crash-report.xml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Config (may contain sensitive data)
+config.json
+
+# Temporary files
+*.tmp
+*.temp
